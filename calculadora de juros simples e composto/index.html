@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juros</title>
+</head>
+<body>
+    <input type="number" id="p" step=".01" placeholder="valor principal">
+    <input type="number" id="r" step=".01" placeholder="taxa de juros em porcentagem">
+    <input type="number" id="t" step=".01" placeholder="período">
+    <button id="simples">Juros simples</button>
+    <button id="composto">Juros composto</button>
+    <p id="resultado"></p>
+
+    <style>
+        *{
+            margin: 5px;
+        }
+        body{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        input, button{
+            width: 90vw;
+            height: 50px;
+            font-size: large;
+            text-align: center;
+        }
+    </style>
+
+    <script>
+        document.getElementById("simples").addEventListener("click", function(){if((document.getElementById("p").value) != "")document.getElementById("resultado").innerHTML = parseFloat(document.getElementById("p").value) + (document.getElementById("p").value * (document.getElementById("r").value / 100) * document.getElementById("t").value)})
+        document.getElementById("composto").addEventListener("click", function(){if((document.getElementById("p").value) != "")document.getElementById("resultado").innerHTML = document.getElementById("p").value * (1 + parseFloat(document.getElementById("r").value / 100)) ** document.getElementById("t").value})
+    </script>
+</body>
+</html>
